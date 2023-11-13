@@ -1,7 +1,7 @@
 # Личный проект «Кекстаграм»
 
 * Студент: [Ислам Алиев](https://up.htmlacademy.ru/univer-js1/4/user/2340093).
-* Наставник: `Неизвестно`.
+* Наставник: [Anthonio Montana](https://htmlacademy.ru/profile/id2339703).
 
 ---
 
