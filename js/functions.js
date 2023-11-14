@@ -1,20 +1,20 @@
 let chosenNumber = function(number){
-  number = '' + number
-  let k=0
-  let arrayNumbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-  let numInStr = []
-  number = number.replaceAll(' ', '').split('')
+  number = '' + number;
+  let k=0;
+  let arrayNumbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+  let numInStr = [];
+  number = number.replaceAll(' ', '').split('');
   for(let i = 0; i<number.length; i++){
     for(let j = 0; j<number.length; j++){
       if(number[i] == arrayNumbers[j]){
-        numInStr.push(arrayNumbers[j])
+        numInStr.push(arrayNumbers[j]);
       }
     }
   }
   if(numInStr.length == 0) {
-    return 0/0
+    return 0/0;
   }
-  return numInStr.join('')
+  return numInStr.join('');
 }
 
 console.log(chosenNumber(45234));
