@@ -17,15 +17,13 @@ let chosenNumber = function(number){
   return numInStr.join('');
 }
 
-console.log(chosenNumber(45234));
+console.log(chosenNumber('sad123asd'));
 
 //----------------------------------------------------------------------------------------------------------------//
 
 let checkPalindrome = function(str){
   let str2 = str.replaceAll(' ', '').toLowerCase().replaceAll(',','').replaceAll('.','')
   str = str.replaceAll(' ', '').replaceAll(',','').replaceAll('.','').toLowerCase().split('').reverse().join('')
-  console.log(str2)
-  console.log(str)
   if(str === str2){
     return true
   }else{
@@ -38,13 +36,9 @@ console.log(checkPalindrome(x))
 
 //-----------------------------------------------------------------------------------------------------------//
 
-let check = function(str, strLength){
-  if(str.length <= strLength){
-    return true
-  } else{
-    return false
-  }
-}
+import { check } from "./i.js";
+
 
 check('my name islam', 15)
 console.log(check('my name islam', 15))
+
