@@ -14,20 +14,12 @@ function isMeetingWithinWorkingHours(startTime, endTime, meetingStartTime, meeti
 
 function convertToMinutes(time) {
   let [hours, minutes] = time.split(':');
-  console.log(hours, minutes);
   return parseInt(hours, 10) * 60 + parseInt(minutes, 10);
 }
 
 // Пример использования функции
 console.log(isMeetingWithinWorkingHours("08:30", "17:00", "09:00", 60));
 console.log(isMeetingWithinWorkingHours("08:00", "17:00", "16:30", 60));
-
-
-
-
-
-
-
 
 
 

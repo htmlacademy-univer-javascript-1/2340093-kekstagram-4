@@ -19,18 +19,20 @@ let createComments = function(j){                 //Создание комме�
   return arrayComment[j]
 }
 
-let createUsers = function(){                     //Создание пользователя
+let createUsers = function(kol){
+  kol++                                 //Создание пользователя
   let arrayUsers = []
-  for(let i = 1; i<26; i++){
+  for(let i = 1; i<kol; i++){
     let objectUsers = {}
     objectUsers.id = i
     objectUsers.url = 'photos/' + i + '.jpg'
     objectUsers.description = 'тыш мильон процент по кайфу сурт'
     objectUsers.likes = createRandomInt(15, 200)
+    objectUsers.quantityComments = createRandomInt(0, 10)
     objectUsers.comment = createComments(i)
     arrayUsers.push(objectUsers)
   }
   return arrayUsers
 }
 
-export{ createRandomInt, createComments, createUsers }
+export{ createUsers }
