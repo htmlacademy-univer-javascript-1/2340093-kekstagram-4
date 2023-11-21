@@ -6,9 +6,10 @@ let createRandomInt = function(min, max){                   //Рандомное
 
 //---------------------------------------------------------------------------------------------------------//
 
-let createComments = function(j){                 //Создание комментария
+let createComments = function(j){
+  j++                                                  //Создание комментария
   let arrayComment = []
-  for(let i = 0; i < 26; ++i){
+  for(let i = 1; i < j; ++i){
     let objectComment = {}
     objectComment.id = i
     objectComment.avatar = 'img/avatar-' + createRandomInt(1, 6) + '.svg'
@@ -16,7 +17,7 @@ let createComments = function(j){                 //Создание комме�
     objectComment.name = nameArray[createRandomInt(0, nameArray.length - 1)]
     arrayComment.push(objectComment)
   }
-  return arrayComment[j]
+  return arrayComment
 }
 
 let createUsers = function(kol){
@@ -28,11 +29,11 @@ let createUsers = function(kol){
     objectUsers.url = 'photos/' + i + '.jpg'
     objectUsers.description = 'тыш мильон процент по кайфу сурт'
     objectUsers.likes = createRandomInt(15, 200)
-    objectUsers.quantityComments = createRandomInt(0, 10)
-    objectUsers.comment = createComments(i)
+    objectUsers.quantityComments = createRandomInt(5, 50)  //Количество коментариев
+    objectUsers.comment = createComments(objectUsers.quantityComments)
     arrayUsers.push(objectUsers)
   }
   return arrayUsers
 }
 
-export{ createUsers }
+export{createUsers}
