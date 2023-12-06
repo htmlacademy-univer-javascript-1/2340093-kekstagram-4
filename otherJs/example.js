@@ -19,3 +19,4 @@ function strInNum(str){
 // Пример использования функции
 console.log(isMeetingWithinWorkingHours("08:30", "17:00", "09:00", 900));
 console.log(isMeetingWithinWorkingHours("08:00", "17:00", "16:30", 30));
+console.log('----------------------------------------------------------------');
