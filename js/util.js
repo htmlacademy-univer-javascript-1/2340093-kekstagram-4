@@ -20,8 +20,7 @@ let createComments = function(j){
   return arrayComment
 }
 
-let createUsers = function(kol){
-  kol++                                 //Создание пользователя
+let createUsers = function(kol){                               //Создание пользователя
   let arrayUsers = []
   for(let i = 1; i<kol; i++){
     let objectUsers = {}
@@ -29,7 +28,7 @@ let createUsers = function(kol){
     objectUsers.url = 'photos/' + i + '.jpg'
     objectUsers.description = 'тыш мильон процент по кайфу сурт'
     objectUsers.likes = createRandomInt(15, 200)
-    objectUsers.quantityComments = createRandomInt(5, 50)  //Количество коментариев
+    objectUsers.quantityComments = createRandomInt(5, 20)  //Количество коментариев
     objectUsers.comment = createComments(objectUsers.quantityComments)
     arrayUsers.push(objectUsers)
   }
