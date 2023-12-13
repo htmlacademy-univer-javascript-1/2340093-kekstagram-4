@@ -1,4 +1,4 @@
-import { users } from "./renderingThambnails.js";
+import { arrayUsers } from "./renderingThambnails.js";
 
 let pictures = document.querySelector('.pictures')
 let bigPicture = document.querySelector('.big-picture')
@@ -14,8 +14,8 @@ function addComment(start, stop, comments){                       //Добавл
     let commentText = commentForBigPicture.querySelector('.social__text')
 
 
-    commentPicture.src = comments.comment[i].avatar
-    commentText.textContent = comments.comment[i].message
+    commentPicture.src = comments.comments[i].avatar
+    commentText.textContent = comments.comments[i].message
     let commentItem = templateComment.cloneNode(true)
     socialComment.appendChild(commentItem)
   }
@@ -27,24 +27,34 @@ let userItem
 
 pictures.addEventListener('click', function(event){
   userItem = event.target
-  openComments.textContent = 5
+
+
+  if(arrayUsers[userItem.dataset.id].comments.length <= 5){
+    buttonLoader.classList.add('hidden')
+    openComments.textContent = arrayUsers[userItem.dataset.id].comments.length
+    start = 0
+    stop = arrayUsers[userItem.dataset.id].comments.length
+  }else {
+    openComments.textContent = 5
+    start = 0
+    stop = 5
+  }
+
   let commentsCount = document.querySelector('.comments-count')
   let likesCount = document.querySelector('.likes-count')
   if(userItem.classList.contains('picture__img')){
 
     bigPictureImg.src = userItem.src
     bigPicture.classList.remove('hidden')
-    buttonLoader.classList.remove('hidden')
-    commentsCount.textContent = users[userItem.dataset.id - 1].quantityComments
-    likesCount.textContent = users[userItem.dataset.id - 1].likes
-    start = 0
-    stop = 5
-    addComment(start, stop, users[userItem.dataset.id - 1])
+
+    commentsCount.textContent = arrayUsers[userItem.dataset.id].comments.length
+    likesCount.textContent = arrayUsers[userItem.dataset.id].likes
+    addComment(start, stop, arrayUsers[userItem.dataset.id])
   }
 })
 buttonLoader.addEventListener('click', function(){
-  if(stop + 5 >= users[userItem.dataset.id - 1].quantityComments){
-    stop = users[userItem.dataset.id - 1].quantityComments
+  if(stop + 5 >= arrayUsers[userItem.dataset.id].comments.length){
+    stop = arrayUsers[userItem.dataset.id].comments.length
     start += 5
     buttonLoader.classList.add('hidden')
   } else{
@@ -52,7 +62,7 @@ buttonLoader.addEventListener('click', function(){
     stop += 5
   }
   openComments.textContent = stop
-  addComment(start, stop, users[userItem.dataset.id - 1])
+  addComment(start, stop, arrayUsers[userItem.dataset.id])
 });
 
 
